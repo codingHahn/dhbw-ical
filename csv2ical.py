@@ -10,8 +10,6 @@ from csv_ical.csv_ical import Convert
 
 def main(argv):
     convert = Convert()
-    csv_file_location = 'test2.csv'
-    ical_file_location = 'output.ics'
     try:
         opts, args = getopt.getopt(argv, "hi:o:", ["ifile=", "ofile="])
     except getopt.GetoptError:
