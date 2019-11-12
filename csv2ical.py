@@ -40,8 +40,6 @@ def main(argv):
         row = convert.csv_data[i]
         start_date = row[1] + ' '+row[csv_configs['CSV_START_DATE']]
         end_date = row[3] + ' ' + row[csv_configs['CSV_END_DATE']]
-        print("start_date: " + start_date)
-        print("end_date: " + end_date)
         try:
             row[csv_configs['CSV_START_DATE']] = datetime.strptime(
                     start_date, '%Y-%m-%d %H:%M'
