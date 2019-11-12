@@ -1,3 +1,4 @@
+#!/bin/env python3
 """
 Example for converting a CSV file into an iCal file
 """
