@@ -5,6 +5,7 @@ Example for converting a CSV file into an iCal file
 
 import sys, getopt
 from datetime import datetime, timedelta
+import pytz
 
 from csv_ical.csv_ical import Convert
 
