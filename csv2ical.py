@@ -39,21 +39,26 @@ def main(argv):
     i = 0
     while i < len(convert.csv_data):
         row = convert.csv_data[i]
-        start_date = row[1] + ' '+row[csv_configs['CSV_START_DATE']]
-        end_date = row[3] + ' ' + row[csv_configs['CSV_END_DATE']]
+        print("[ROW]: {}".format(row))
         try:
-            row[csv_configs['CSV_START_DATE']] = datetime.strptime(
-                    start_date, '%Y-%m-%d %H:%M'
-                    )
-            row[csv_configs['CSV_END_DATE']] = datetime.strptime(
-                    end_date, '%Y-%m-%d %H:%M'
-                    )
-            row[csv_configs['CSV_DESCRIPTION']] = row[csv_configs['CSV_INSTRUCTOR']].upper() + ' | '+row[csv_configs['CSV_NAME']]
+            start_date = row[1] + ' '+row[csv_configs['CSV_START_DATE']]
+            end_date = row[3] + ' ' + row[csv_configs['CSV_END_DATE']]
+            try:
+                row[csv_configs['CSV_START_DATE']] = datetime.strptime(
+                        start_date, '%Y-%m-%d %H:%M'
+                        )
+                row[csv_configs['CSV_END_DATE']] = datetime.strptime(
+                        end_date, '%Y-%m-%d %H:%M'
+                        )
+                row[csv_configs['CSV_DESCRIPTION']] = row[csv_configs['CSV_INSTRUCTOR']].upper() + ' | '+row[csv_configs['CSV_NAME']]
 
-            i += 1
-        except ValueError:
-            convert.csv_data.pop(i)
-            print("Did not work")
+                i += 1
+            except ValueError:
+                convert.csv_data.pop(i)
+                print("Did not work")
+        except:
+            print("Skipped: {}".format(row))
+            del convert.csv_data[i]
 
         print("Done parsing dates")
         row[csv_configs['CSV_NAME']] = row[csv_configs['CSV_NAME']]
