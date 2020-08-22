@@ -1,3 +1,6 @@
 [submodule "csv-ical"]
 	path = csv_ical
 	url = https://github.com/codingHahn/csv-ical
+[submodule "rapla2csv"]
+	path = rapla2csv
+	url = https://github.com/codingHahn/rapla2csv
